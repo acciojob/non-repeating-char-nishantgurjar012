@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <title>Find First Non-Repeated Character</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+  <script>
+    function findFirstNonRepeatedCharacter(inputString) {
+      const charCount = {};
+
+      // Count the occurrences of each character in the string
+      for (let i = 0; i < inputString.length; i++) {
+        const char = inputString[i];
+        charCount[char] = (charCount[char] || 0) + 1;
+      }
+
+      // Find the first non-repeated character
+      for (let i = 0; i < inputString.length; i++) {
+        const char = inputString[i];
+        if (charCount[char] === 1) {
+          return char;
+        }
+      }
+
+      // If there is no non-repeated character, return null
+      return null;
+    }
+
+    // Get input string using prompt
+    const inputString = prompt("Enter a string:");
+    const firstNonRepeatedChar = findFirstNonRepeatedCharacter(inputString);
+
+    if (firstNonRepeatedChar !== null) {
+      alert("The first non-repeated character is: " + firstNonRepeatedChar);
+    } else {
+      alert("No non-repeated character found in the string.");
+    }
+  </script>
 
 </body>
-
 </html>
+
